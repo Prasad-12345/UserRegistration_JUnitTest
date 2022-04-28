@@ -64,8 +64,26 @@ public class UserValidatorTest {
      * If email is not proper then this method should pass the assertfalse condition
      */
     @Test
-    public void givenEmail_WhenNotProper_ShouldReturnTrue(){
+    public void givenEmail_WhenNotProper_ShouldReturnFalse(){
         boolean result = userValidator.checkEmail("abc().xyz@bl.co.in");
+        Assert.assertFalse(result);
+    }
+
+    /*
+     * If phone number is proper then this method should pass the asserttrue condition
+     */
+    @Test
+    public void givenPhoneNumber_WhenProper_ShouldReturnTrue(){
+        boolean result = userValidator.phoneNumber("91 7798718310");
+        Assert.assertTrue(result);
+    }
+
+    /*
+     * If email is not proper then this method should pass the assertfalse condition
+     */
+    @Test
+    public void givenPhoneNumber_WhenNotProper_ShouldReturnFalse(){
+        boolean result = userValidator.phoneNumber("917798718310");
         Assert.assertFalse(result);
     }
 }
