@@ -16,7 +16,7 @@ public class UserValidatorTest {
     }
 
     /*
-     * If first name is proper then this method shoud pass the asserttrue condition
+     * If first name is proper then this method sholud pass the asserttrue condition
      */
     @Test
     public void givenFirstName_WhenProper_ReturnTrue(){
@@ -25,7 +25,7 @@ public class UserValidatorTest {
     }
 
     /*
-     * If first name is not proper then this method shoud pass the assertfalse condition
+     * If first name is not proper then this method should pass the assertfalse condition
      */
     @Test
     public void givenFirstName_WhenNotProper_ReturnFalse(){
@@ -34,7 +34,7 @@ public class UserValidatorTest {
     }
 
     /*
-     * If last name is proper then this method shoud pass the asserttrue condition
+     * If last name is proper then this method should pass the asserttrue condition
      */
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue(){
@@ -43,11 +43,29 @@ public class UserValidatorTest {
     }
 
     /*
-     * If last name is not proper then this method shoud pass the assertfalse condition
+     * If last name is not proper then this method should pass the assertfalse condition
      */
     @Test
     public void givenLastName_WhenNotProper_ReturnFalse(){
         boolean result = userValidator.lastName("somvanshi");
+        Assert.assertFalse(result);
+    }
+
+    /*
+     * If email is proper then this method should pass the asserttrue condition
+     */
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue(){
+        boolean result = userValidator.checkEmail("abc.xyz@bl.co.in");
+        Assert.assertTrue(result);
+    }
+
+    /*
+     * If email is not proper then this method should pass the assertfalse condition
+     */
+    @Test
+    public void givenEmail_WhenNotProper_ShouldReturnTrue(){
+        boolean result = userValidator.checkEmail("abc().xyz@bl.co.in");
         Assert.assertFalse(result);
     }
 }
