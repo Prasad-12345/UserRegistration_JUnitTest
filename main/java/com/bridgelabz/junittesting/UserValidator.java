@@ -14,6 +14,7 @@ public class UserValidator {
     private static final String regexPassword1 =  "^[0-9a-zA-Z!,@#$&*().]{8,}$";
     private static final String regexPassword2 = "(?=.*[A-Z])^[0-9a-zA-Z!,@#$&*().]{8,}$";
     private static final String regexPassword3 = "(?=.*[A-Z])(?=.*[0-9])^[0-9a-zA-Z!,@#$&*().]{8,}$";
+    private static final String regexPassword4 = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$).{8,}";
 
     /*
      * To validate first name
@@ -69,5 +70,13 @@ public class UserValidator {
     public boolean password3(String password3){
         Pattern pattern = Pattern.compile(regexPassword3);
         return  pattern.matcher(password3).matches();
+    }
+
+    /*
+     * To validate passwoed rule4
+     */
+    public boolean password4(String password4){
+        Pattern pattern = Pattern.compile(regexPassword4);
+        return  pattern.matcher(password4).matches();
     }
 }
