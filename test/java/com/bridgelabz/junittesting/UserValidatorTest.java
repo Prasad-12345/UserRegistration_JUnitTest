@@ -86,4 +86,22 @@ public class UserValidatorTest {
         boolean result = userValidator.phoneNumber("917798718310");
         Assert.assertFalse(result);
     }
+
+    /*
+     * If password is proper then this method should pass the asserttrue condition
+     */
+    @Test
+    public void givenPassword1_WhenProper_ShouldReturnTrue(){
+        boolean result = userValidator.password("Prasad@1234");
+        Assert.assertTrue(result);
+    }
+
+    /*
+     * If password is not proper then this method should pass the assertfalse condition
+     */
+    @Test
+    public void givenPassword1_WhenNotProper_ShouldReturnFalse(){
+        boolean result = userValidator.phoneNumber("Pass12");
+        Assert.assertFalse(result);
+    }
 }
