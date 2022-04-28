@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /*
  *Author: Prasad
  */
@@ -157,5 +159,58 @@ public class UserValidatorTest {
     public void givenPassword4_WhenNotProper_ShouldReturnFalse(){
         boolean result = userValidator.password4("Prasad@123@");
         Assert.assertFalse(result);
+    }
+
+    /*
+     * If email is proper then this method should pass the asserttrue condition
+     */
+    @Test
+    public void givenEmail2_WhenProper_ShouldReturnTrue(){
+        //created array list
+        ArrayList<String> email = new ArrayList<>();
+        System.out.println("-----Valid emails-----");
+        email.add("abc@yahoo.com");
+        email.add("abc-100@yahoo.com");
+        email.add("abc.100@yahoo.com");
+        email.add("abc111@abc.com");
+        email.add("abc-100@abc.net");
+        email.add("abc.100@abc.com.au");
+        email.add("abc@1.com");
+        email.add("abc@gmail.com.com");
+        email.add("abc+100@gmail.com");
+        for(String str : email) {
+            boolean result = userValidator.email2(str);
+            Assert.assertTrue(result);
+        }
+    }
+
+    /*
+     * If email is not proper then this method should pass the assertfalse condition
+     */
+    @Test
+    public void givenEmail2_WhenNotProper_ShouldReturnTrue(){
+        //created array list
+        ArrayList<String> email = new ArrayList<>();
+        System.out.println("-----Invalid emails-----");
+        email.add("abc");
+        email.add("abc..");
+        email.add("abc..@gmail.com");
+        email.add("abc@abc@gmail.com");
+        email.add("abc@.com.my");
+        email.add("abc123@gmail.a");
+        email.add("abc123@.com");
+        email.add("abc123@.com.com");
+        email.add(".abc@abc.com");
+        email.add("abc()*@gmail.com");
+        email.add("abc..2002@gmail.com");
+        email.add("abc.@gmail.com");
+        email.add("abc@abc@gmail.com");
+        email.add("abc@gmail.com.1a");
+        email.add("abc..@gmail.com");
+        email.add("abc@gmail.com.aa.au");
+        for(String str : email) {
+            boolean result = userValidator.email2(str);
+            Assert.assertFalse(result);
+        }
     }
 }
