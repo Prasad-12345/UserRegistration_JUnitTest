@@ -15,6 +15,7 @@ public class UserValidator {
     private static final String regexPassword2 = "(?=.*[A-Z])^[0-9a-zA-Z!,@#$&*().]{8,}$";
     private static final String regexPassword3 = "(?=.*[A-Z])(?=.*[0-9])^[0-9a-zA-Z!,@#$&*().]{8,}$";
     private static final String regexPassword4 = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$).{8,}";
+    private static final String regexEmail2 = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:([0-9]{1}|[a-zA-Z]{3,5})\\.)+[a-zA-Z]{2,3}";
 
     /*
      * To validate first name
@@ -78,5 +79,13 @@ public class UserValidator {
     public boolean password4(String password4){
         Pattern pattern = Pattern.compile(regexPassword4);
         return  pattern.matcher(password4).matches();
+    }
+
+    /*
+     * To validate all email samples
+     */
+    public boolean email2(String email2){
+        Pattern pattern = Pattern.compile(regexEmail2);
+        return  pattern.matcher(email2).matches();
     }
 }
