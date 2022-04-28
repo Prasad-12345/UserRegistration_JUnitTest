@@ -101,7 +101,7 @@ public class UserValidatorTest {
      */
     @Test
     public void givenPassword1_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userValidator.phoneNumber("Pass12");
+        boolean result = userValidator.password("Pass12");
         Assert.assertFalse(result);
     }
 }
