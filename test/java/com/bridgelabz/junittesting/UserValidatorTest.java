@@ -213,4 +213,22 @@ public class UserValidatorTest {
             Assert.assertFalse(result);
         }
     }
+
+    /*
+     *Test case for happy mood
+     */
+    @Test
+    public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful(){
+        String result = MoodAnalyser.analyseMood("happy");
+        Assert.assertEquals("Entry successful", result);
+    }
+
+    /*
+     *Test case for happy mood
+     */
+    @Test
+    public void givenMessage_WhenSad_ShouldReturnEntryFailed(){
+        String result = MoodAnalyser.analyseMood("sad");
+        Assert.assertEquals("Entry failed", result);
+    }
 }
