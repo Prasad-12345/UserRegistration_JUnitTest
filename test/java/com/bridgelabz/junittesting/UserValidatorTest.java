@@ -36,6 +36,33 @@ public class UserValidatorTest {
     }
 
     /*
+     *Test case for exception
+     */
+    @Test
+    public void givenFirstName_WhenNull_ShouldThrowException(){
+        UserValidator userValidator1 = new UserValidator();
+        try{
+            userValidator1.firstName(null);
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_NULL, e.type);
+        }
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenFirstName_WhenEmpty_ShouldThrowException(){
+        try{
+            userValidator.firstName("");
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_EMPTY, e.type);
+        }
+    }
+
+    /*
      * If last name is proper then this method should pass the asserttrue condition
      */
     @Test
@@ -51,6 +78,32 @@ public class UserValidatorTest {
     public void givenLastName_WhenNotProper_ReturnFalse(){
         boolean result = userValidator.lastName("somvanshi");
         Assert.assertFalse(result);
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenLastName_WhenNull_ShouldThrowException(){
+        try{
+            userValidator.lastName(null);
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_NULL, e.type);
+        }
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenLastName_WhenEmpty_ShouldThrowException(){
+        try{
+            userValidator.lastName("");
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_EMPTY, e.type);
+        }
     }
 
     /*
@@ -72,6 +125,32 @@ public class UserValidatorTest {
     }
 
     /*
+     *Test case for exception
+     */
+    @Test
+    public void givenEmail_WhenNull_ShouldThrowException(){
+        try{
+            userValidator.checkEmail(null);
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_NULL, e.type);
+        }
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenEmail_WhenEmpty_ShouldThrowException(){
+        try{
+            userValidator.checkEmail("");
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_EMPTY, e.type);
+        }
+    }
+
+    /*
      * If phone number is proper then this method should pass the asserttrue condition
      */
     @Test
@@ -87,6 +166,32 @@ public class UserValidatorTest {
     public void givenPhoneNumber_WhenNotProper_ShouldReturnFalse(){
         boolean result = userValidator.phoneNumber("917798718310");
         Assert.assertFalse(result);
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenPhoneNumber_WhenNull_ShouldThrowException(){
+        try{
+            userValidator.phoneNumber(null);
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_NULL, e.type);
+        }
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenPhoneNumber_WhenEmpty_ShouldThrowException(){
+        try{
+            userValidator.phoneNumber("");
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_EMPTY, e.type);
+        }
     }
 
     /*
@@ -159,6 +264,32 @@ public class UserValidatorTest {
     public void givenPassword4_WhenNotProper_ShouldReturnFalse(){
         boolean result = userValidator.password4("Prasad@123@");
         Assert.assertFalse(result);
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenPassword4_WhenNull_ShouldThrowException(){
+        try{
+            userValidator.password4(null);
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_NULL, e.type);
+        }
+    }
+
+    /*
+     *Test case for exception
+     */
+    @Test
+    public void givenPasswprd4_WhenEmpty_ShouldThrowException(){
+        try{
+            userValidator.password4("");
+        }
+        catch (UserValidatorException e){
+            Assert.assertEquals(UserValidatorException.ExceptionType.ENTERED_EMPTY, e.type);
+        }
     }
 
     /*
