@@ -20,37 +20,76 @@ public class UserValidator {
     /*
      * To validate first name
      */
-    public boolean firstName(String firstName){
-        Pattern pattern = Pattern.compile(regexFirstName);
-        return  pattern.matcher(firstName).matches();
+    public boolean firstName(String firstName) throws UserValidatorException{
+        try {
+            if(firstName.length() == 0){
+                throw new UserValidatorException("Please enter valid first name", UserValidatorException.ExceptionType.ENTERED_EMPTY);
+            }
+            else {
+                Pattern pattern = Pattern.compile(regexFirstName);
+                return pattern.matcher(firstName).matches();
+            }
+        }
+        catch(NullPointerException e){
+            throw new UserValidatorException("Please enter valid first name", UserValidatorException.ExceptionType.ENTERED_NULL);
+        }
     }
 
     /*
      * To validate last name
      */
-    public boolean lastName(String lastName){
-        Pattern pattern = Pattern.compile(regexLastName);
-        return  pattern.matcher(lastName).matches();
+    public boolean lastName(String lastName) throws UserValidatorException{
+        try {
+            if(lastName.length() == 0){
+                throw new UserValidatorException("Please enter valid last name", UserValidatorException.ExceptionType.ENTERED_EMPTY);
+            }
+            else {
+                Pattern pattern = Pattern.compile(regexLastName);
+                return pattern.matcher(lastName).matches();
+            }
+        }
+        catch(NullPointerException e){
+            throw new UserValidatorException("Please enter valid last name", UserValidatorException.ExceptionType.ENTERED_NULL);
+        }
     }
 
     /*
      * To validate email
      */
-    public boolean checkEmail(String email){
-        Pattern pattern = Pattern.compile(regexEmail);
-        return  pattern.matcher(email).matches();
+    public boolean checkEmail(String email) throws UserValidatorException{
+        try {
+            if (email.length() == 0) {
+                throw new UserValidatorException("Please enter valid email", UserValidatorException.ExceptionType.ENTERED_EMPTY);
+            }
+            else {
+                Pattern pattern = Pattern.compile(regexEmail);
+                return pattern.matcher(email).matches();
+            }
+        }
+        catch (NullPointerException e){
+            throw new UserValidatorException("Please enter valid email", UserValidatorException.ExceptionType.ENTERED_NULL);
+        }
     }
 
     /*
      * To validate phone number
      */
-    public boolean phoneNumber(String phoneNumber){
-        Pattern pattern = Pattern.compile(regexPhoneNumber);
-        return  pattern.matcher(phoneNumber).matches();
+    public boolean phoneNumber(String phoneNumber) throws UserValidatorException{
+        try {
+            if (phoneNumber.length() == 0) {
+                throw new UserValidatorException("Please enter valid phone number", UserValidatorException.ExceptionType.ENTERED_EMPTY);
+            } else {
+                Pattern pattern = Pattern.compile(regexPhoneNumber);
+                return pattern.matcher(phoneNumber).matches();
+            }
+        }
+        catch (NullPointerException e){
+            throw new UserValidatorException("Please enter valid phone number", UserValidatorException.ExceptionType.ENTERED_NULL);
+        }
     }
 
     /*
-     * To validate passwoed rule1
+     * To validate password rule1
      */
     public boolean password(String password){
         Pattern pattern = Pattern.compile(regexPassword1);
@@ -58,7 +97,7 @@ public class UserValidator {
     }
 
     /*
-     * To validate passwoed rule2
+     * To validate password rule2
      */
     public boolean password2(String password2){
         Pattern pattern = Pattern.compile(regexPassword2);
@@ -66,7 +105,7 @@ public class UserValidator {
     }
 
     /*
-     * To validate passwoed rule3
+     * To validate password rule3
      */
     public boolean password3(String password3){
         Pattern pattern = Pattern.compile(regexPassword3);
@@ -74,11 +113,20 @@ public class UserValidator {
     }
 
     /*
-     * To validate passwoed rule4
+     * To validate password rule4
      */
-    public boolean password4(String password4){
-        Pattern pattern = Pattern.compile(regexPassword4);
-        return  pattern.matcher(password4).matches();
+    public boolean password4(String password4) throws UserValidatorException{
+        try {
+            if (password4.length() == 0) {
+                throw new UserValidatorException("Please enter valid password", UserValidatorException.ExceptionType.ENTERED_EMPTY);
+            } else {
+                Pattern pattern = Pattern.compile(regexPassword4);
+                return pattern.matcher(password4).matches();
+            }
+        }
+        catch(NullPointerException e){
+            throw new UserValidatorException("Please enter valid password", UserValidatorException.ExceptionType.ENTERED_NULL);
+        }
     }
 
     /*
